@@ -1,0 +1,55 @@
+###
+@port = 5000
+@api = http://localhost:{{port}}/api/videos
+
+### CREATE VIDEO Attack on Titan S4: The Rumbling
+POST {{api}}
+Content-Type: application/json
+
+{
+  "url": "https://www.youtube.com/watch?v=JuvvyS-Hq8Y",
+  "title": "Attack on Titan S4: The Rumbling",
+  "description": "EPIC VERSION (Hiroyuki Sawano Style)",
+  "author": "Samuel Kim Music"
+}
+
+### CREATE VIDEO Attack on Titan S4: Footsteps of Doom
+POST {{api}}
+Content-Type: application/json
+
+{
+  "url": "https://www.youtube.com/watch?v=qBSkCfJ6oOk",
+  "title": "Attack on Titan S4: Footsteps of Doom",
+  "description": "EPIC COVER (feat. Ashes on The Fire)",
+  "author": "Samuel Kim Music"
+}
+
+### CREATE VIDEO to DELETE
+POST {{api}}
+Content-Type: application/json
+
+{
+  "url": "https://www.youtube.com/watch?v=Md0WKA05dkw ",
+  "title": "     Attack on Titan S4: Ashes on The Fire x 0sk     ",
+  "description": " EPIC VERSION (The Cost of Freedom) "
+}
+
+### GET ALL
+GET {{api}}
+
+###
+@id = 
+
+### GET VIDEO
+GET {{api}}/{{id}}
+
+### DELETE VIDEO
+DELETE {{api}}/{{id}}
+
+### UPDATE
+PUT {{api}}/{{id}}
+Content-Type: application/json
+
+{
+  "author": "Samuel Kim Music"
+}
