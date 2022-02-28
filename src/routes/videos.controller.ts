@@ -3,12 +3,11 @@ import Video from './Video';
 
 export const createVideo: RequestHandler = async (req, res) => {
     const videoFound = await Video.findOne({ url: req.body.url });
-    if (videoFound)
-        return res.status(303).json({ message: 'URL already exists!' });
+    if (videoFound) return res.status(303).json(videoFound);
 
     const newVideo = new Video(req.body);
     const savedVideo = await newVideo.save();
-    res.json(savedVideo);
+    return res.json(savedVideo);
 };
 
 export const getAll: RequestHandler = async (req, res) => {
@@ -17,7 +16,7 @@ export const getAll: RequestHandler = async (req, res) => {
 
         return res.json(videos);
     } catch (error) {
-        res.json(error);
+        return res.json(error);
     }
 };
 
